@@ -23,26 +23,28 @@ This project involves analyzing a retail sales dataset loaded into SQL Server Ma
 - **Table Creation**: A table named `retail_sales` is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
 
 ```sql
-CREATE DATABASE p1_retail_db;
+ create database sql_project_1
 
-CREATE TABLE retail_sales
-(
-    transactions_id INT PRIMARY KEY,
-    sale_date DATE,	
-    sale_time TIME,
-    customer_id INT,	
-    gender VARCHAR(10),
-    age INT,
-    category VARCHAR(35),
-    quantity INT,
-    price_per_unit FLOAT,	
-    cogs FLOAT,
-    total_sale FLOAT
+use sql_project_1
+drop table if exists retail_sales
+Create table retail_sales(
+transactions_id	INT,
+sale_date	DATE,
+sale_time	TIME,
+customer_id	INT,
+gender	VARCHAR(15),
+age	INT,
+category VARCHAR(15),	
+quantiy	INT,
+price_per_unit FLOAT,	
+cogs	FLOAT,
+total_sale FLOAT
 );
 ```
 ### 2. Load the data
 A bulk retail sales dataset has been successfully loaded into SQL Server Management Studio for analysis. The dataset contains detailed sales transaction records, including date, time, product, quantity, price, and payment details. It will be used to perform sales trend analysis, identify peak sales periods, and generate business insights.
-```
+
+```sql
 BULK INSERT [dbo].[retail_sales]
 FROM 'C:\Users\abina\OneDrive\Documents\SQL Server Management Studio\SQL - Retail Sales Analysis_utf .csv'
 WITH (
